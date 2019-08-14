@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fair Trade Coffee</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Fair Trade Coffee</h1>
+        <hr>
+        <p style="text-align: center;">Prove the authenticity of coffee using the Ethereum blockchain.</p>
+    </div>
+
+    <div class="container">
+        <div class="input-group col-8 mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text text-success" for="inputFarmerID">Farmer ID :</label>
+            </div>
+            <select class="custom-select" id="inputFarmerID">
+                <option selected>Choose...</option>
+                <option value="0xeee189815EF6018f633a903388b53949C9B5DAF1" selected="true">0xeee189815EF6018f633a903388b53949C9B5DAF1</option>
+                <option value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3">0xb344994AAEece34C54C1A5d0FfAa608a450253c3</option>
+                <option value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10">0x20874EdeB7C0a972a006C081c31ed17b33a50d10</option>
+                <option value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B">0x8573B655b03E979aaDbc694A49Fc3bb9d036005B</option>
+            </select>
+        </div>
+        <div class="input-group col-8 mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text text-warning" for="inputDistributorID">Distributor ID :</label>
+            </div>
+            <select class="custom-select" id="inputDistributorID">
+                <option selected>Choose...</option>
+                <option value="0xeee189815EF6018f633a903388b53949C9B5DAF1">0xeee189815EF6018f633a903388b53949C9B5DAF1</option>
+                <option value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3" selected="true">0xb344994AAEece34C54C1A5d0FfAa608a450253c3</option>
+                <option value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10">0x20874EdeB7C0a972a006C081c31ed17b33a50d10</option>
+                <option value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B">0x8573B655b03E979aaDbc694A49Fc3bb9d036005B</option>
+            </select>
+        </div>
+        <div class="input-group col-8 mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text text-info" for="inputRetailerID">Retailer ID :</label>
+            </div>
+            <select class="custom-select" id="inputRetailerID">
+                <option selected>Choose...</option>
+                <option value="0xeee189815EF6018f633a903388b53949C9B5DAF1">0xeee189815EF6018f633a903388b53949C9B5DAF1</option>
+                <option value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3">0xb344994AAEece34C54C1A5d0FfAa608a450253c3</option>
+                <option value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10" selected="true">0x20874EdeB7C0a972a006C081c31ed17b33a50d10</option>
+                <option value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B">0x8573B655b03E979aaDbc694A49Fc3bb9d036005B</option>
+            </select>
+        </div>
+        <div class="input-group col-8 mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text text-danger" for="inputConsumerID">Consumer ID :</label>
+            </div>
+            <select class="custom-select" id="inputConsumerID">
+                <option selected>Choose...</option>
+                <option value="0xeee189815EF6018f633a903388b53949C9B5DAF1">0xeee189815EF6018f633a903388b53949C9B5DAF1</option>
+                <option value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3">0xb344994AAEece34C54C1A5d0FfAa608a450253c3</option>
+                <option value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10">0x20874EdeB7C0a972a006C081c31ed17b33a50d10</option>
+                <option value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B" selected="true">0x8573B655b03E979aaDbc694A49Fc3bb9d036005B</option>
+            </select>
+        </div>
+
+        <div class=button-div>
+            <button class="btn btn-primary btn-fetchOne" id="button" type="button" data-id="9">Fetch Data 1</button>
+            <button class="btn btn-primary btn-fetchTwo" id="button" type="button" data-id="10">Fetch Data 2</button>
+            <button class="btn btn-primary btn-success btn-harvest" id="button" type="button" data-toggle="modal" data-target="#harvestModal">Harvest</button>
+            <button class="btn btn-primary btn-success btn-process" id="button" type="button" data-id="2">Process</button>
+            <button class="btn btn-primary btn-success btn-pack" id="button" type="button" data-id="3">Pack</button>
+            <button class="btn btn-primary btn-success btn-forsale" id="button" type="button" data-toggle="modal" data-target="#forSaleModal">ForSale</button>
+            <button class="btn btn-primary btn-warning btn-buy" id="button" type="button" data-toggle="modal" data-target="#buyModal">Buy</button>
+            <button class="btn btn-primary btn-warning btn-ship" id="button" type="button" data-id="6">Ship</button>
+            <button class="btn btn-primary btn-info btn-receive" id="button" type="button" data-id="7">Receive</button>
+            <button class="btn btn-primary btn-danger btn-purchase" id="button" type="button" data-id="8">Purchase</button>
+        </div>
+
+<br><br>
+        <div id="ftc-coffee" class="form-group col-8 mb-8">
+            <br>
+            <h5>Product Overview</h5>
+            <label>SKU</label>
+            <input class="input-field form-control" type="number" id="sku" name="sku"><br>
+            <label>UPC</label>
+            <input class="input-field form-control" type="number" id="upc" name="upc"><br>
+            <label>Current Owner ID</label>
+            <input class="input-field form-control" type="text" id="ownerID" name="ownerID" size="50"><br>
+            <hr/>
+            <h5>Product Details</h5>
+            <label>Product Notes</label>
+            <input class="input-field form-control" type="text" id="productNotes" name="productNotes" size="60"><br>
+            <label>Product Price</label>
+            <input class="input-field form-control" type="number" id="productPrice" name="productPrice"> ETH<br>
+            <label>Item State</label>
+            <input class="input-field form-control" type="text" id="itemState" name="itemState"><br>
+            <label>Farmer ID</label>
+            <input class="input-field form-control" type="text" id="farmerID" name="farmerID" size="50"><br>
+            <label>Distributor ID</label>
+            <input class="input-field form-control" type="text" id="distributorID" name="distributorID" size="50"><br>
+            <label>Retailer ID</label>
+            <input class="input-field form-control" type="text" id="retailerID" name="retailerID" size="50"><br>
+            <label>Distributor ID</label>
+            <input class="input-field form-control" type="text" id="consumerID" name="consumerID" size="50"><br>
+        </div>
+
+
+
+        <div class="modal fade" id="harvestModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Harvest Coffee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="ftc-farmer" class="form-group">
+                        <label>UPC</label>
+                        <input class="input-field form-control" type="number" id="upc" name="upc" value="1"><br>
+                        <br>
+                        <label>Farm Name</label>
+                        <input class="input-field form-control" type="text" id="originFarmName" name="originFarmName" value="John Doe"><br>
+                        <label>Farm Information</label>
+                        <input class="input-field form-control" type="text" id="originFarmInformation" name="originFarmInformation" value="Yarra Valley"><br>
+                        <label>Farm Latitude</label>
+                        <input class="input-field form-control" type="text" id="originFarmLatitude" name="originFarmLatitude" value="-38.239770"><br>
+                        <label>Farm Longitude</label>
+                        <input class="input-field form-control" type="text" id="originFarmLongitude" name="originFarmLongitude" value="144.341490"><br>
+                        <label>Product Notes</label>
+                        <input class="input-field form-control" type="text" id="productNotes" name="productNotes" size="60" value="Best beans for Espresso"><br>
+                        <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary btn-harvest" id="button" type="button" data-id="1">Harvest</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="forSaleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sell Coffee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="ftc-farmer" class="form-group">
+                        <label>Product Price</label>
+                        <div class="input-group">
+                            <input type="text" id="productPrice" class="input-field form-control" placeholder="product price" aria-label="" aria-describedby="button-forsale">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="addon-wrapping">ETH</span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary btn-forsale" id="button" type="button" data-id="4">ForSale</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Buy Coffee</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="ftc-distributor" class="form-group">
+                        <label>Amount</label>
+                        <div class="input-group">
+                            <input type="text" id="amount-sent" class="input-field form-control" placeholder="Send value" aria-label="" aria-describedby="button-buy">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="addon-wrapping">ETH</span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary btn-buy" id="button" type="button" data-id="5">Buy</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    
+
+<br><br>
+
+    <h2>Transaction History<span id="ftc-history"></span></h2>
+    <div>
+        <ul id="ftc-events">
+            <!-- Events will appear here from app.js -->
+        </ul>
+        <br>
+        <hr>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- <script src="js/web3.min.js"></script> -->
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
