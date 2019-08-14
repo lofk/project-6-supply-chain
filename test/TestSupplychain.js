@@ -301,25 +301,5 @@ contract('SupplyChain', function(accounts) {
         assert.equal(resultBufferTwo[7], retailerID, 'Error: Missing or Invalid retailerID')
         assert.equal(resultBufferTwo[8], consumerID, 'Error: Missing or Invalid consumerID')
     })
-
-    // // 10th Test
-    it("Testing smart contract function trackItem() that allows anyone to track item transaction hashes", async() => {
-        const supplyChain = await SupplyChain.deployed()
-
-        // Retrieve the just now saved item from blockchain by calling function fetchItem()
-        await supplyChain.trackItem.call(upc, '0x00000000000000000000000000000000000000')
-        await supplyChain.trackItem.call(upc, '0x00000000000000000000000000000000000001')
-        await supplyChain.trackItem.call(upc, '0x00000000000000000000000000000000000002')
-        
-        const tx1 = await supplyChain.itemsHistory.call(upc, 0)
-        console.log(tx1);
-        // const tx2 = await supplyChain.itemsHistory.call('1', '1')
-        // const tx3 = await supplyChain.itemsHistory.call('1', '2')   
-        // Verify the result set:
-        // assert.equal(tx1, '0x00000000000000000000000000000000000000')
-        // assert.equal(tx2, '0x00000000000000000000000000000000000001')
-        // assert.equal(tx3, '0x00000000000000000000000000000000000002')
-    })
-    
 });
 

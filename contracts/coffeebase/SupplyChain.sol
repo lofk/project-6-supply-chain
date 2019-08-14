@@ -380,12 +380,10 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
   }
 
   // Track item history
-  function trackItem(uint _upc, string _txHash) public returns (uint)
+  function trackItem(uint _upc, string _txHash) public
   {
     string[] storage txHashes = itemsHistory[_upc];
     txHashes.push(_txHash);
     itemsHistory[_upc] = txHashes;
-
-    return itemsHistory[_upc].length;
   }
 }
