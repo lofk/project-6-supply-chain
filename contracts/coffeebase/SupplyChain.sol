@@ -1,16 +1,14 @@
 pragma solidity ^0.4.24;
 
 // Import the library 'Roles'
+import "../coffeecore/Ownable.sol";
 import "../coffeeaccesscontrol/FarmerRole.sol";
 import "../coffeeaccesscontrol/DistributorRole.sol";
 import "../coffeeaccesscontrol/RetailerRole.sol";
 import "../coffeeaccesscontrol/ConsumerRole.sol";
 
 // Define a contract 'Supplychain'
-contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole {
-
-  // Define 'owner'
-  address owner;
+contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, ConsumerRole {
 
   // Define a variable called 'upc' for Universal Product Code (UPC)
   uint  upc;
@@ -68,18 +66,6 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
   event Shipped(uint upc);
   event Received(uint upc);
   event Purchased(uint upc);
-
-  // Define a modifer that checks to see if msg.sender == owner of the contract
-  modifier onlyOwner() {
-    require(msg.sender == owner);
-    _;
-  }
-
-  // Define a modifer that verifies the Caller
-  modifier verifyCaller (address _address) {
-    require(msg.sender == _address); 
-    _;
-  }
 
   // Define a modifier that checks if the paid amount is sufficient to cover the price
   modifier paidEnough(uint _upc) {
@@ -148,15 +134,14 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
   // and set 'sku' to 1
   // and set 'upc' to 1
   constructor() public payable {
-    owner = msg.sender;
     sku = 1;
     upc = 1;
   }
 
   // Define a function 'kill' if required
   function kill() public {
-    if (msg.sender == owner) {
-      selfdestruct(owner);
+    if (isOwner()) {
+      selfdestruct(owner());
     }
   }
 
@@ -183,6 +168,8 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
     items[_upc] = item;
     // Emit the appropriate event
     emit Harvested(_upc);
+
+    transferOwnership(_originFarmerID);
   }
 
   // Define a function 'processtItem' that allows a farmer to mark an item 'Processed'
@@ -191,7 +178,7 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
   // Call modifier to check if upc has passed previous supply chain stage
   harvested(_upc)
   // Call modifier to verify caller of this function
-  verifyCaller(owner)
+  onlyOwner()
   {
     // Update the appropriate fields
     items[_upc].itemState = State.Processed;
@@ -206,7 +193,7 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
   // Call modifier to check if upc has passed previous supply chain stage
   processed(_upc)
   // Call modifier to verify caller of this function
-  verifyCaller(owner)
+  onlyOwner()
   {
     // Update the appropriate fields
     items[_upc].itemState = State.Packed;
@@ -221,7 +208,7 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
   // Call modifier to check if upc has passed previous supply chain stage
   packed(_upc)
   // Call modifier to verify caller of this function
-  verifyCaller(owner)
+  onlyOwner()
   {
     // Update the appropriate fields
     items[_upc].productPrice = _price;
@@ -257,12 +244,13 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
   // Define a function 'shipItem' that allows the distributor to mark an item 'Shipped'
   // Use the above modifers to check if the item is sold
   function shipItem(uint _upc) public 
-    onlyDistributor()
+    onlyFarmer()
     // Call modifier to check if upc has passed previous supply chain stage
     sold(_upc)
     // Call modifier to verify caller of this function
-    verifyCaller(owner)
+    onlyOwner()
   {
+    renounceOwnership();
     // Update the appropriate fields
     items[_upc].itemState = State.Shipped;
     // Emit the appropriate event
@@ -385,5 +373,14 @@ contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole 
     string[] storage txHashes = itemsHistory[_upc];
     txHashes.push(_txHash);
     itemsHistory[_upc] = txHashes;
+  }
+
+  function fetchItemHistory(uint _upc) public view returns
+  (string history)
+  {
+    history = "";
+    for (uint i = 0; i < itemsHistory[_upc].length; i++) {
+      abi.encodePacked(history, itemsHistory[_upc][i]);
+    }
   }
 }
