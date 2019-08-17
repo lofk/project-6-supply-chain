@@ -27,7 +27,7 @@ Make sure you have 4 different wallets for each stakeholder, to interact with th
 ### Public Network
 The smart contract for the Supply Chain, can be found on the Rinkeby network.
 
-- Contract transaction hash : https://rinkeby.etherscan.io/tx/0xd4ae7666b3184c1fbba3d2aa5b18efa0bbb411337dcc95402bafd577b92bc8a8
+- Contract transaction hash : https://rinkeby.etherscan.io/tx/0x43fbb58ef9aee69fb76c4772e9bc2e4962b16a11951d1761cb1338a427dfa681
 
 - Contract Address :
-https://rinkeby.etherscan.io/address/0x7192b9383444a582217d363cc7962eb89c8719e8
+https://rinkeby.etherscan.io/address/0x04b664f4b7b208e32c4469c042d1464fccb1aee7
