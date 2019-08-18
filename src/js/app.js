@@ -189,8 +189,6 @@ App = {
         event.preventDefault();
         var processId = parseInt($(event.target).data('id'));
 
-        console.log('acc1 : ' + App.originFarmerID.toLowerCase());
-        console.log('acc2 : ' + App.metamaskAccountID);
         App.contracts.SupplyChain.deployed().then(function(instance) {
             return instance.processItem(App.upc, {from: App.originFarmerID.toLowerCase() });
         }).then(function(result) {

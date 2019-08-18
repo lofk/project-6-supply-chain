@@ -22,49 +22,25 @@
             <div class="input-group-prepend">
                 <label class="input-group-text text-success" for="inputFarmerID">Farmer ID :</label>
             </div>
-            <select class="custom-select" id="inputFarmerID">
-                <option selected>Choose...</option>
-                <option value="0xeee189815EF6018f633a903388b53949C9B5DAF1" selected="true">0xeee189815EF6018f633a903388b53949C9B5DAF1</option>
-                <option value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3">0xb344994AAEece34C54C1A5d0FfAa608a450253c3</option>
-                <option value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10">0x20874EdeB7C0a972a006C081c31ed17b33a50d10</option>
-                <option value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B">0x8573B655b03E979aaDbc694A49Fc3bb9d036005B</option>
-            </select>
+            <input class="input-field form-control" type="text" id="inputFarmerID" name="inputFarmerID" value="0xeee189815EF6018f633a903388b53949C9B5DAF1"><br>
         </div>
         <div class="input-group col-8 mb-3">
             <div class="input-group-prepend">
                 <label class="input-group-text text-warning" for="inputDistributorID">Distributor ID :</label>
             </div>
-            <select class="custom-select" id="inputDistributorID">
-                <option selected>Choose...</option>
-                <option value="0xeee189815EF6018f633a903388b53949C9B5DAF1">0xeee189815EF6018f633a903388b53949C9B5DAF1</option>
-                <option value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3" selected="true">0xb344994AAEece34C54C1A5d0FfAa608a450253c3</option>
-                <option value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10">0x20874EdeB7C0a972a006C081c31ed17b33a50d10</option>
-                <option value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B">0x8573B655b03E979aaDbc694A49Fc3bb9d036005B</option>
-            </select>
+            <input class="input-field form-control" type="text" id="inputDistributorID" name="inputDistributorID" value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3"><br>
         </div>
         <div class="input-group col-8 mb-3">
             <div class="input-group-prepend">
                 <label class="input-group-text text-info" for="inputRetailerID">Retailer ID :</label>
             </div>
-            <select class="custom-select" id="inputRetailerID">
-                <option selected>Choose...</option>
-                <option value="0xeee189815EF6018f633a903388b53949C9B5DAF1">0xeee189815EF6018f633a903388b53949C9B5DAF1</option>
-                <option value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3">0xb344994AAEece34C54C1A5d0FfAa608a450253c3</option>
-                <option value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10" selected="true">0x20874EdeB7C0a972a006C081c31ed17b33a50d10</option>
-                <option value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B">0x8573B655b03E979aaDbc694A49Fc3bb9d036005B</option>
-            </select>
+            <input class="input-field form-control" type="text" id="inputRetailerID" name="inputRetailerID" value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10"><br>
         </div>
         <div class="input-group col-8 mb-3">
             <div class="input-group-prepend">
                 <label class="input-group-text text-danger" for="inputConsumerID">Consumer ID :</label>
             </div>
-            <select class="custom-select" id="inputConsumerID">
-                <option selected>Choose...</option>
-                <option value="0xeee189815EF6018f633a903388b53949C9B5DAF1">0xeee189815EF6018f633a903388b53949C9B5DAF1</option>
-                <option value="0xb344994AAEece34C54C1A5d0FfAa608a450253c3">0xb344994AAEece34C54C1A5d0FfAa608a450253c3</option>
-                <option value="0x20874EdeB7C0a972a006C081c31ed17b33a50d10">0x20874EdeB7C0a972a006C081c31ed17b33a50d10</option>
-                <option value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B" selected="true">0x8573B655b03E979aaDbc694A49Fc3bb9d036005B</option>
-            </select>
+            <input class="input-field form-control" type="text" id="inputConsumerID" name="inputConsumerID" value="0x8573B655b03E979aaDbc694A49Fc3bb9d036005B"><br>
         </div>
 
         <div class=button-div>
@@ -85,27 +61,27 @@
             <br>
             <h5>Product Overview</h5>
             <label>SKU</label>
-            <input class="input-field form-control" type="number" id="sku" name="sku"><br>
+            <input class="input-field form-control" type="number" id="sku" name="sku" readonly><br>
             <label>UPC</label>
-            <input class="input-field form-control" type="number" id="upc" name="upc"><br>
+            <input class="input-field form-control" type="number" id="upc" name="upc" readonly><br>
             <label>Current Owner ID</label>
-            <input class="input-field form-control" type="text" id="ownerID" name="ownerID" size="50"><br>
+            <input class="input-field form-control" type="text" id="ownerID" name="ownerID" size="50" readonly><br>
             <hr/>
             <h5>Product Details</h5>
             <label>Product Notes</label>
-            <input class="input-field form-control" type="text" id="productNotes" name="productNotes" size="60"><br>
+            <input class="input-field form-control" type="text" id="productNotes" name="productNotes" size="60" readonly><br>
             <label>Product Price</label>
-            <input class="input-field form-control" type="number" id="productPrice" name="productPrice"> ETH<br>
+            <input class="input-field form-control" type="number" id="productPrice" name="productPrice" readonly> ETH<br>
             <label>Item State</label>
-            <input class="input-field form-control" type="text" id="itemState" name="itemState"><br>
+            <input class="input-field form-control" type="text" id="itemState" name="itemState" readonly><br>
             <label>Farmer ID</label>
-            <input class="input-field form-control" type="text" id="farmerID" name="farmerID" size="50"><br>
+            <input class="input-field form-control" type="text" id="farmerID" name="farmerID" size="50" readonly><br>
             <label>Distributor ID</label>
-            <input class="input-field form-control" type="text" id="distributorID" name="distributorID" size="50"><br>
+            <input class="input-field form-control" type="text" id="distributorID" name="distributorID" size="50" readonly><br>
             <label>Retailer ID</label>
-            <input class="input-field form-control" type="text" id="retailerID" name="retailerID" size="50"><br>
+            <input class="input-field form-control" type="text" id="retailerID" name="retailerID" size="50" readonly><br>
             <label>Distributor ID</label>
-            <input class="input-field form-control" type="text" id="consumerID" name="consumerID" size="50"><br>
+            <input class="input-field form-control" type="text" id="consumerID" name="consumerID" size="50" readonly><br>
         </div>
 
 
